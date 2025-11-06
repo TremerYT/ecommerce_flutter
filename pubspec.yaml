@@ -37,6 +37,8 @@ dependencies:
   get: any
   google_fonts: ^6.3.2
   sign_in_button: ^4.0.1
+  flutter_form_builder: ^10.2.0
+  form_builder_validators: ^11.2.0
 
 dev_dependencies:
   flutter_test:

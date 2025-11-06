@@ -17,7 +17,7 @@ class LoginScreen extends GetView {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 450,
+              height: 455,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.95),
@@ -105,7 +105,7 @@ class LoginScreen extends GetView {
                         fontWeight: FontWeight.w500,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () { Get.toNamed('signIn'); },
                         child: CustomText(
                           text: "Sign in",
                           textColor: Colors.orange,
