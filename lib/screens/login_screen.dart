@@ -59,9 +59,10 @@ class LoginScreen extends GetView {
                     onPressed: () {},
                     padding: EdgeInsets.all(15),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadiusGeometry.circular(10),
+                      borderRadius: BorderRadiusGeometry.circular(50),
                     ),
                     backgroundColor: Colors.white,
+                    elevation: 0.1,
                   ),
                   const SizedBox(height: 20),
                   SignInButton(
@@ -73,9 +74,9 @@ class LoginScreen extends GetView {
                     ),
                     onPressed: () {},
                     padding: EdgeInsets.all(5),
-                    elevation: 1,
+                    elevation: 0.1,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadiusGeometry.circular(10),
+                      borderRadius: BorderRadiusGeometry.circular(50),
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -88,9 +89,9 @@ class LoginScreen extends GetView {
                     ),
                     onPressed: () {},
                     padding: EdgeInsets.all(15),
-                    elevation: 1,
+                    elevation: 0.1,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadiusGeometry.circular(10),
+                      borderRadius: BorderRadiusGeometry.circular(50),
                     ),
                   ),
                   const SizedBox(height: 60),

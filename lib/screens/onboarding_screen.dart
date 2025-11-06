@@ -15,7 +15,7 @@ class OnboardingScreen extends GetView<OnboardingController> {
         child: Column(
           children: [
             SizedBox(
-              height: Get.height * 0.75,
+              height: Get.height * 0.72,
               child: PageView.builder(
                 controller: controller.pageController,
                 onPageChanged: controller.onPageChanged,
@@ -33,7 +33,7 @@ class OnboardingScreen extends GetView<OnboardingController> {
                           textAlign: TextAlign.center,
                           text: page["title"]!,
                           textColor: Color(0xff000000),
-                          fontSize: 28,
+                          fontSize: 35,
                           fontWeight: FontWeight.w600,
                         ),
                         const SizedBox(height: 15),
@@ -41,7 +41,7 @@ class OnboardingScreen extends GetView<OnboardingController> {
                           textAlign: TextAlign.center,
                           text: page["subtext"]!,
                           textColor: Color(0xff4e4e4e),
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
                       ],
@@ -70,7 +70,7 @@ class OnboardingScreen extends GetView<OnboardingController> {
                 }),
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             CustomButton(
               title: "Get Started",
               fontSize: 18,
@@ -79,6 +79,42 @@ class OnboardingScreen extends GetView<OnboardingController> {
               textColor: Colors.white,
               suffixIcon: Icons.arrow_forward,
             ),
+            const SizedBox(height: 60),
+            RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'Poppins',
+                ),
+                children: const [
+                  TextSpan(
+                    text: 'By tapping on ',
+                  ),
+                  TextSpan(
+                    text: '"Get started"',
+                    style: TextStyle(color: Colors.orange),
+                  ),
+                  TextSpan(
+                    text:
+                    ' and using the shopping app you\'re agreeing to our ',
+                  ),
+                  TextSpan(
+                    text: 'terms of service',
+                    style: TextStyle(color: Colors.orange),
+                  ),
+                  TextSpan(
+                    text: ' and ',
+                  ),
+                  TextSpan(
+                    text: 'privacy policy',
+                    style: TextStyle(color: Colors.orange),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
