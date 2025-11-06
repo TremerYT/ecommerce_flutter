@@ -8,6 +8,7 @@ class CustomButton extends GetView {
   final Color bgColor;
   final Color textColor;
   final double fontSize;
+  final double width;
   final IconData? suffixIcon;
 
   const CustomButton({
@@ -17,6 +18,7 @@ class CustomButton extends GetView {
     required this.bgColor,
     required this.onPressed,
     required this.textColor,
+    required this.width,
     this.suffixIcon,
   });
 
@@ -25,6 +27,7 @@ class CustomButton extends GetView {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
+        minimumSize: Size(width, 0),
         backgroundColor: bgColor,
         padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 14),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),

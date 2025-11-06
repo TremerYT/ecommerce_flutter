@@ -1,3 +1,4 @@
+import 'package:ecommerce/controllers/auth_controller.dart';
 import 'package:ecommerce/controllers/onboarding_controller.dart';
 import 'package:ecommerce/screens/login_screen.dart';
 import 'package:ecommerce/screens/onboarding_screen.dart';
@@ -17,6 +18,12 @@ class AppRoutes {
       }),
     ),
     GetPage(name: login, page: () => LoginScreen()),
-    GetPage(name: signIn, page: () => SignInScreen())
+    GetPage(
+      name: signIn,
+      page: () => SignInScreen(),
+      binding: BindingsBuilder(() {
+        Get.put(AuthController());
+      }),
+    ),
   ];
 }

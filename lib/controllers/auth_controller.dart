@@ -1,0 +1,50 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+
+class AuthController {
+  List<Map> signInFormProperties = [
+    {
+      "name": "email",
+      "label": "Email"
+    },
+    {
+      "name": "password",
+      "label": "Password"
+    }
+  ];
+
+  List<Map> signUpFormProperties = [
+    {
+      "name": "firstName",
+      "label": "First Name"
+    },
+    {
+      "name": "secondName",
+      "label": "Second Name"
+    },
+    {
+      "name": "userName",
+      "label": "Username"
+    },
+    {
+      "name": "email",
+      "label": "Email"
+    },
+    {
+      "name": "phone",
+      "label": "Phone"
+    },
+    {
+      "name": "password",
+      "label": "Password"
+    },
+  ];
+
+  final signInKey = GlobalKey<FormBuilderState>();
+  final signUpKey = GlobalKey<FormBuilderState>();
+
+  void signInValidator() {
+    signInKey.currentState!.saveAndValidate();
+  }
+
+}

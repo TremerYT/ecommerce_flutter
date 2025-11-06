@@ -1,10 +1,13 @@
+import 'package:ecommerce/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
 class CustomForm extends StatefulWidget {
   final String name;
-  const CustomForm({super.key, required this.name});
+  final String label;
+
+  const CustomForm({super.key, required this.name, required this.label});
 
   @override
   State<CustomForm> createState() => _CustomFormState();
@@ -15,27 +18,29 @@ class _CustomFormState extends State<CustomForm> {
 
   @override
   Widget build(BuildContext context) {
-    return FormBuilder(
-      child: FormBuilderTextField(
-        name: widget.name,
-        obscureText: widget.name == "password" ? obscure : false,
-        decoration: InputDecoration(
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-          suffixIcon: widget.name == "password"
-              ? IconButton(
-            icon: Icon(
-              obscure ? Icons.visibility_off : Icons.visibility,
-            ),
-            onPressed: () {
-              setState(() {
-                obscure = !obscure;
-              });
-            },
-          )
-              : null,
+    return FormBuilderTextField(
+      name: widget.name,
+      obscureText: widget.name == "password" ? obscure : false,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+        suffixIcon: widget.name == "password"
+            ? IconButton(
+                icon: Icon(obscure ? Icons.visibility_off : Icons.visibility),
+                onPressed: () {
+                  setState(() {
+                    obscure = !obscure;
+                  });
+                },
+              )
+            : null,
+        hint: CustomText(
+          text: widget.label,
+          textColor: Color(0xff000000),
+          fontSize: 17,
+          fontWeight: FontWeight.w500,
         ),
-        validator: FormBuilderValidators.compose(verify(widget.name)),
       ),
+      validator: FormBuilderValidators.compose(verify(widget.name)),
     );
   }
 }
@@ -46,13 +51,14 @@ List<FormFieldValidator<String>> verify(String name) {
       FormBuilderValidators.required(errorText: "First name is required"),
     ];
   } else if (name == "lastName") {
-    return [
-      FormBuilderValidators.required(errorText: "Last name is required"),
-    ];
+    return [FormBuilderValidators.required(errorText: "Last name is required")];
   } else if (name == "userName") {
     return [
       FormBuilderValidators.required(errorText: "Username is required"),
-      FormBuilderValidators.minLength(3, errorText: "Must be at least 3 characters"),
+      FormBuilderValidators.minLength(
+        3,
+        errorText: "Must be at least 3 characters",
+      ),
       FormBuilderValidators.match(
         RegExp(r'^[a-zA-Z0-9_]+$'),
         errorText: 'Only letters, numbers, and underscores allowed',
@@ -74,9 +80,9 @@ List<FormFieldValidator<String>> verify(String name) {
   } else if (name == "password") {
     return [
       FormBuilderValidators.required(errorText: "Password is required"),
-      FormBuilderValidators.password()
+      FormBuilderValidators.password(),
     ];
   } else {
-    return [];
+    return [FormBuilderValidators.required(errorText: "")];
   }
 }
