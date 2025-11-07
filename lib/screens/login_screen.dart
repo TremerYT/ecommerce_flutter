@@ -41,7 +41,7 @@ class LoginScreen extends GetView {
                   ),
                   const SizedBox(height: 10),
                   CustomText(
-                    text: "One best app for Your needs",
+                    text: "One best app for all Your needs",
                     textColor: Color(0xff000000),
                     fontSize: 17,
                     fontWeight: FontWeight.w400,

@@ -73,7 +73,7 @@ class OnboardingScreen extends GetView<OnboardingController> {
             const SizedBox(height: 20),
             CustomButton(
               title: "Get Started",
-              width: Get.width,
+              width: Get.width * 0.9,
               fontSize: 18,
               bgColor: Colors.deepPurple,
               onPressed: controller.nextPage,
