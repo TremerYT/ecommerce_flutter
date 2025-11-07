@@ -46,23 +46,9 @@ class _CustomFormState extends State<CustomForm> {
 }
 
 List<FormFieldValidator<String>> verify(String name) {
-  if (name == "firstName") {
+  if (name == "fullName") {
     return [
       FormBuilderValidators.required(errorText: "First name is required"),
-    ];
-  } else if (name == "lastName") {
-    return [FormBuilderValidators.required(errorText: "Last name is required")];
-  } else if (name == "userName") {
-    return [
-      FormBuilderValidators.required(errorText: "Username is required"),
-      FormBuilderValidators.minLength(
-        3,
-        errorText: "Must be at least 3 characters",
-      ),
-      FormBuilderValidators.match(
-        RegExp(r'^[a-zA-Z0-9_]+$'),
-        errorText: 'Only letters, numbers, and underscores allowed',
-      ),
     ];
   } else if (name == "email") {
     return [

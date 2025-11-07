@@ -165,7 +165,7 @@ class SignInScreen extends GetView<AuthController> {
                             text: "Sign Up",
                             style: TextStyle(color: Colors.orange),
                             recognizer: TapGestureRecognizer() ..onTap = () {
-                              Get.toNamed('/signup');
+                              Get.toNamed('/signUp');
                             }
                           ),
                         ],

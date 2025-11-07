@@ -15,16 +15,8 @@ class AuthController {
 
   List<Map> signUpFormProperties = [
     {
-      "name": "firstName",
-      "label": "First Name"
-    },
-    {
-      "name": "secondName",
-      "label": "Second Name"
-    },
-    {
-      "name": "userName",
-      "label": "Username"
+      "name": "fullName",
+      "label": "Full Name"
     },
     {
       "name": "email",

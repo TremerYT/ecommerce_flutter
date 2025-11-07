@@ -31,7 +31,7 @@ class AppRoutes {
       name: signUp,
       page: () => SignUpScreen(),
       binding: BindingsBuilder(() {
-        Get.put(AuthController());
+        Get.put(AuthController(), permanent: true);
       }),
     ),
   ];
