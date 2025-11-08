@@ -1,5 +1,4 @@
 import 'package:ecommerce/controllers/auth_controller.dart';
-import 'package:ecommerce/widgets/custom_button.dart';
 import 'package:ecommerce/widgets/custom_form.dart';
 import 'package:ecommerce/widgets/custom_text.dart';
 import 'package:flutter/gestures.dart';
@@ -8,9 +7,11 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 import 'package:sign_in_button/sign_in_button.dart';
 
-class SignInScreen extends GetView<AuthController> {
+import '../../widgets/custom_button.dart';
 
-  const SignInScreen({super.key});
+
+class SignUpScreen extends GetView<AuthController> {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,60 +27,48 @@ class SignInScreen extends GetView<AuthController> {
                   children: [
                     Align(
                       alignment: Alignment.centerLeft,
-                      child: ClipOval(
-                        child: Image.asset(
-                          "assets/shopping_icon.jpeg",
-                          width: 60,
-                          height: 60,
+                      child: GestureDetector(
+                        child: Icon(
+                          Icons.close,
+                          color: Color(0xff000000),
+                          size: 32,
                         ),
+                        onTap: () => Get.back(),
                       ),
                     ),
                     const SizedBox(height: 20),
                     CustomText(
-                      text: "Welcome Back!",
+                      text: "Welcome!",
                       textColor: Color(0xff000000),
                       fontSize: 35,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 5),
                     CustomText(
-                      text: "Please enter your details",
-                      textColor: Color(0xffb6b6b6),
-                      fontSize: 17,
-                      fontWeight: FontWeight.normal,
+                      text: "Lets get Started with a free Nirvana account.",
+                      textColor: Color(0xffa1a1a1),
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
                     ),
-                    const SizedBox(height: 13),
+                    const SizedBox(height: 20),
                     FormBuilder(
-                      key: controller.signInKey,
+                      key: controller.signUpKey,
                       child: Column(
-                        children: controller.signInFormProperties
+                        children: controller.signUpFormProperties
                             .expand(
                               (property) => [
                                 CustomForm(
                                   name: property["name"],
                                   label: property["label"],
                                 ),
-                                const SizedBox(height: 15),
+                                const SizedBox(height: 20),
                               ],
                             )
                             .toList(),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: InkWell(
-                        onTap: () {},
-                        child: CustomText(
-                          text: "Forgot Password?",
-                          textColor: Colors.orange,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
                     CustomButton(
-                      title: 'Sign In',
+                      title: 'Sign up',
                       width: Get.width,
                       fontSize: 17,
                       bgColor: Color(0xff161b37),
@@ -97,7 +86,7 @@ class SignInScreen extends GetView<AuthController> {
                           ),
                         ),
                         CustomText(
-                          text: 'Or sign in with',
+                          text: 'Or sign up with',
                           textColor: Color(0xFF838383),
                           fontSize: 17,
                           fontWeight: FontWeight.w500,
@@ -149,7 +138,7 @@ class SignInScreen extends GetView<AuthController> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 60),
+                    const SizedBox(height: 60),
                     RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(
@@ -160,13 +149,14 @@ class SignInScreen extends GetView<AuthController> {
                           fontFamily: 'Poppins',
                         ),
                         children: [
-                          TextSpan(text: "Don't Have an account? "),
+                          TextSpan(text: "Already Have an account? "),
                           TextSpan(
-                            text: "Sign Up",
+                            text: "Sign in",
                             style: TextStyle(color: Colors.orange),
-                            recognizer: TapGestureRecognizer() ..onTap = () {
-                              Get.offNamed('/signUp');
-                            }
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Get.offNamed('/signIn');
+                              },
                           ),
                         ],
                       ),
