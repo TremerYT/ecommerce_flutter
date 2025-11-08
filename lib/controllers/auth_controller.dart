@@ -39,4 +39,8 @@ class AuthController {
     signInKey.currentState!.saveAndValidate();
   }
 
+  void signUpValidator() {
+    signUpKey.currentState!.saveAndValidate();
+  }
+
 }

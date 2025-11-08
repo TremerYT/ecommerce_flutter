@@ -51,12 +51,12 @@ class LoginScreen extends GetView {
                   SignInButtonBuilder(
                     text: 'Continue with Email',
                     textColor: Color(0xff000000),
-                    textStyle: TextStyle(
-                      fontSize: 17,
-                    ),
+                    textStyle: TextStyle(fontSize: 17),
                     icon: Icons.email,
                     iconColor: Color(0xff000000),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.offNamed("/signIn");
+                    },
                     padding: EdgeInsets.all(15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadiusGeometry.circular(50),
@@ -99,15 +99,17 @@ class LoginScreen extends GetView {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CustomText(
-                        text: "Already have an account? ",
-                        textColor: Color(0xff000000),
+                        text: "Don't have an account? ",
+                        textColor: Color(0xff7c7c7c),
                         fontSize: 17,
                         fontWeight: FontWeight.w500,
                       ),
                       InkWell(
-                        onTap: () { Get.toNamed('signIn'); },
+                        onTap: () {
+                          Get.offNamed('/signUp');
+                        },
                         child: CustomText(
-                          text: "Sign in",
+                          text: "Sign up",
                           textColor: Colors.orange,
                           fontSize: 17,
                           fontWeight: FontWeight.w500,
