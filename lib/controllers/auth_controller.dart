@@ -34,6 +34,7 @@ class AuthController {
 
   final signInKey = GlobalKey<FormBuilderState>();
   final signUpKey = GlobalKey<FormBuilderState>();
+  final resetKey = GlobalKey<FormBuilderState>();
 
   void signInValidator() {
     signInKey.currentState!.saveAndValidate();
@@ -41,6 +42,10 @@ class AuthController {
 
   void signUpValidator() {
     signUpKey.currentState!.saveAndValidate();
+  }
+
+  void resetValidator () {
+    resetKey.currentState!.saveAndValidate();
   }
 
 }

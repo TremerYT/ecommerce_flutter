@@ -35,7 +35,7 @@ class _CustomFormState extends State<CustomForm> {
             : null,
         hint: CustomText(
           text: widget.label,
-          textColor: Color(0xff000000),
+          textColor: Color(0xff838383),
           fontSize: 17,
           fontWeight: FontWeight.w500,
         ),
