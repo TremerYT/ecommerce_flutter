@@ -42,7 +42,7 @@ class ResetScreen extends GetView<AuthController> {
                   label: "Enter Your email Address",
                 ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 25),
               CustomButton(
                 title: "Send Password",
                 fontSize: 17,

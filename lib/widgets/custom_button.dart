@@ -30,7 +30,7 @@ class CustomButton extends GetView {
         minimumSize: Size(width, 0),
         backgroundColor: bgColor,
         padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 14),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
