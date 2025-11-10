@@ -3,6 +3,7 @@ import 'package:ecommerce/controllers/onboarding_controller.dart';
 import 'package:ecommerce/screens/authentication_screens/login_screen.dart';
 import 'package:ecommerce/screens/authentication_screens/forgotpass_screen.dart';
 import 'package:ecommerce/screens/authentication_screens/reset_screen.dart';
+import 'package:ecommerce/screens/authentication_screens/success_screen.dart';
 import 'package:ecommerce/screens/onboarding_screen.dart';
 import 'package:ecommerce/screens/authentication_screens/signin_screen.dart';
 import 'package:ecommerce/screens/authentication_screens/signup_screen.dart';
@@ -15,6 +16,7 @@ class AppRoutes {
   static const signUp = '/signUp';
   static const forgotPassword = '/forgotPassword';
   static const resetPassword = '/resetPassword';
+  static const successScreen ='/successScreen';
   static final routes = [
     GetPage(
       name: onboarding,
@@ -46,5 +48,6 @@ class AppRoutes {
         Get.put(AuthController(), permanent: true);
       }),
     ),
+    GetPage(name: successScreen, page: () => SuccessScreen()),
   ];
 }

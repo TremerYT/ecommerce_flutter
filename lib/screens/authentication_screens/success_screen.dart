@@ -1,13 +1,10 @@
-import 'package:ecommerce/controllers/auth_controller.dart';
 import 'package:ecommerce/widgets/custom_button.dart';
-import 'package:ecommerce/widgets/custom_form.dart';
 import 'package:ecommerce/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 
-class ResetScreen extends GetView<AuthController> {
-  const ResetScreen({super.key});
+class SuccessScreen extends GetView {
+  const SuccessScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,43 +15,37 @@ class ResetScreen extends GetView<AuthController> {
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
           child: ListView(
             children: [
-              Image.asset("assets/forgot_password.jpeg", fit: BoxFit.contain),
+              Image.asset("assets/Mailbox.jpeg", fit: BoxFit.contain),
+              const SizedBox(height: 20),
               CustomText(
-                text: "Forgot Password",
+                text: "Password Reset Sent",
                 textColor: Color(0xff000000),
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
               CustomText(
-                text: "Please enter your email address to reset your password.",
+                text:
+                    "Please Check your email in a few minutes - we've sent you an email containing your password recovery link",
                 textColor: Color(0xff838383),
                 fontSize: 17,
                 fontWeight: FontWeight.normal,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 15),
-              FormBuilder(
-                key: controller.resetKey,
-                child: CustomForm(
-                  name: 'email',
-                  label: "Enter Your email Address",
-                ),
-              ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 20),
               CustomButton(
-                title: "Send Password",
+                title: "Open my email",
                 fontSize: 17,
                 bgColor: Colors.deepPurple,
-                onPressed: () {Get.toNamed("/successScreen");},
+                onPressed: () {},
                 textColor: Color(0xffffffff),
                 width: Get.width,
-                suffixIcon: Icons.arrow_forward,
+                suffixIcon: Icons.email_outlined,
               ),
               const SizedBox(height: 60),
               CustomText(
-                text: "Don't remember your email?",
+                text: "Didn't receive the email?",
                 textColor: Color(0xff838383),
                 fontSize: 17,
                 fontWeight: FontWeight.normal,
