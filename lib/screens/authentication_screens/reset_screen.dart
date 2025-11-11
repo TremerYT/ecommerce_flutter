@@ -45,12 +45,8 @@ class ResetScreen extends GetView<AuthController> {
               const SizedBox(height: 25),
               CustomButton(
                 title: "Send Password",
-                fontSize: 17,
-                bgColor: Colors.deepPurple,
                 onPressed: () {Get.toNamed("/successScreen");},
-                textColor: Color(0xffffffff),
-                width: Get.width,
-                suffixIcon: Icons.arrow_forward,
+                icon: Icon(Icons.arrow_forward),
               ),
               const SizedBox(height: 60),
               CustomText(

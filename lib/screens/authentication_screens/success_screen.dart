@@ -36,12 +36,8 @@ class SuccessScreen extends GetView {
               const SizedBox(height: 20),
               CustomButton(
                 title: "Open my email",
-                fontSize: 17,
-                bgColor: Colors.deepPurple,
                 onPressed: () {},
-                textColor: Color(0xffffffff),
-                width: Get.width,
-                suffixIcon: Icons.email_outlined,
+                icon: Icon(Icons.email_outlined),
               ),
               const SizedBox(height: 60),
               CustomText(
