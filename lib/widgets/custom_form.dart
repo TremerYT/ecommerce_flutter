@@ -6,8 +6,16 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 class CustomForm extends StatefulWidget {
   final String name;
   final String label;
+  final TextInputType? keyboardType;
+  final bool isPassword;
 
-  const CustomForm({super.key, required this.name, required this.label});
+  const CustomForm({
+    super.key,
+    required this.name,
+    required this.label,
+    this.keyboardType,
+    this.isPassword = false,
+  });
 
   @override
   State<CustomForm> createState() => _CustomFormState();
@@ -20,8 +28,11 @@ class _CustomFormState extends State<CustomForm> {
   Widget build(BuildContext context) {
     return FormBuilderTextField(
       name: widget.name,
-      obscureText: widget.name == "password" ? obscure : false,
+      obscureText: widget.isPassword ? obscure : false,
+      keyboardType: widget.keyboardType ?? TextInputType.text,
       decoration: InputDecoration(
+        labelText: widget.label,
+        labelStyle: const TextStyle(color: Color(0xff838383)),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
         suffixIcon: widget.name == "password"
             ? IconButton(
@@ -33,12 +44,6 @@ class _CustomFormState extends State<CustomForm> {
                 },
               )
             : null,
-        hint: CustomText(
-          text: widget.label,
-          textColor: Color(0xff838383),
-          fontSize: 17,
-          fontWeight: FontWeight.w500,
-        ),
       ),
       validator: FormBuilderValidators.compose(verify(widget.name)),
     );

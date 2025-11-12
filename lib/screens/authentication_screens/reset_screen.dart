@@ -46,7 +46,7 @@ class ResetScreen extends GetView<AuthController> {
               CustomButton(
                 title: "Send Password",
                 onPressed: () {Get.toNamed("/successScreen");},
-                icon: Icon(Icons.arrow_forward),
+                suffixIcon: Icon(Icons.arrow_forward),
               ),
               const SizedBox(height: 60),
               CustomText(

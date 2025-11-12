@@ -37,7 +37,7 @@ class SuccessScreen extends GetView {
               CustomButton(
                 title: "Open my email",
                 onPressed: () {},
-                icon: Icon(Icons.email_outlined),
+                suffixIcon: Icon(Icons.email_outlined),
               ),
               const SizedBox(height: 60),
               CustomText(

@@ -1,9 +1,10 @@
+import 'package:ecommerce/widgets/custom_button.dart';
 import 'package:ecommerce/widgets/custom_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sign_in_button/sign_in_button.dart';
 
 class LoginScreen extends GetView {
   const LoginScreen({super.key});
@@ -42,10 +43,11 @@ class LoginScreen extends GetView {
                       CustomText(
                         text: "Welcome to Nirvana",
                         textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                          fontFamily: GoogleFonts.pacifico().fontFamily,
-                          fontSize: 35,
-                        ),
+                        style: Theme.of(context).textTheme.displayLarge
+                            ?.copyWith(
+                              fontFamily: GoogleFonts.pacifico().fontFamily,
+                              fontSize: 35,
+                            ),
                       ),
                       const SizedBox(height: 10),
                       CustomText(
@@ -53,51 +55,30 @@ class LoginScreen extends GetView {
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 20),
-                      SignInButtonBuilder(
-                        text: 'Continue with Email',
-                        textColor: Color(0xff000000),
-                        textStyle: TextStyle(fontSize: 17),
-                        icon: Icons.email,
-                        iconColor: Color(0xff000000),
+                      CustomButton(
+                        title: "Sign in with email",
+                        bgColor: Color(0xffffffff),
+                        textColor: Colors.black87,
                         onPressed: () {
                           Get.offNamed("/signIn");
                         },
-                        padding: EdgeInsets.all(15),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        backgroundColor: Colors.white,
-                        elevation: 0.1,
+                        prefixIcon: Icon(Icons.email_outlined),
                       ),
                       const SizedBox(height: 20),
-                      SignInButton(
-                        Buttons.google,
-                        text: "Continue with Google",
-                        textStyle: TextStyle(
-                          fontSize: 17,
-                          color: Color(0xff000000),
-                        ),
+                      CustomButton(
+                        title: "Sign in with google",
                         onPressed: () {},
-                        padding: EdgeInsets.all(5),
-                        elevation: 0.1,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
+                        bgColor: Color(0xffffffff),
+                        textColor: Colors.black87,
+                        prefixIcon: FaIcon(FontAwesomeIcons.google),
                       ),
                       const SizedBox(height: 20),
-                      SignInButton(
-                        Buttons.appleDark,
-                        text: "Continue with Apple",
-                        textStyle: TextStyle(
-                          fontSize: 17,
-                          color: Color(0xffffffff),
-                        ),
+                      CustomButton(
+                        title: "Sign in with apple",
                         onPressed: () {},
-                        padding: EdgeInsets.all(15),
-                        elevation: 0.1,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
+                        bgColor: Color(0xffffffff),
+                        textColor: Colors.black87,
+                        prefixIcon: FaIcon(FontAwesomeIcons.apple),
                       ),
                       const SizedBox(height: 60),
                       Center(

@@ -47,7 +47,7 @@ class OnboardingScreen extends GetView<OnboardingController> {
                       title: "Get Started",
                       onPressed: controller.nextPage,
                       width: Get.width,
-                      icon: const Icon(Icons.arrow_forward),
+                      suffixIcon: const Icon(Icons.arrow_forward),
                     ),
                     const SizedBox(height: 20),
                     buildTermsText(),
