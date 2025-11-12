@@ -15,26 +15,23 @@ class ResetScreen extends GetView<AuthController> {
       backgroundColor: Color(0xffffffff),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: ListView(
             children: [
-              Image.asset("assets/forgot_password.jpeg", fit: BoxFit.contain),
+              const SizedBox(height: 20),
+              Image.asset("assets/forgot_password.jpeg", fit: BoxFit.contain, height: Get.height * 0.3,),
               CustomText(
                 text: "Forgot Password",
-                textColor: Color(0xff000000),
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+                style: Theme.of(context).textTheme.displayLarge,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 12),
               CustomText(
                 text: "Please enter your email address to reset your password.",
-                textColor: Color(0xff838383),
-                fontSize: 17,
-                fontWeight: FontWeight.normal,
+                style: Theme.of(context).textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 25),
               FormBuilder(
                 key: controller.resetKey,
                 child: CustomForm(
@@ -42,21 +39,20 @@ class ResetScreen extends GetView<AuthController> {
                   label: "Enter Your email Address",
                 ),
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 30),
               CustomButton(
-                title: "Send Password",
+                title: "Send Password Reset",
+                width: Get.width,
                 onPressed: () {Get.toNamed("/successScreen");},
                 suffixIcon: Icon(Icons.arrow_forward),
               ),
-              const SizedBox(height: 60),
+              const SizedBox(height: 50),
               CustomText(
                 text: "Don't remember your email?",
-                textColor: Color(0xff838383),
-                fontSize: 17,
-                fontWeight: FontWeight.normal,
+                style: Theme.of(context).textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 8),
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
