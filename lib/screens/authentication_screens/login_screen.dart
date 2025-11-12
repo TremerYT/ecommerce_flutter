@@ -62,7 +62,7 @@ class LoginScreen extends GetView {
                         onPressed: () {
                           Get.offNamed("/signIn");
                         },
-                        prefixIcon: Icon(Icons.email_outlined),
+                        prefixIcon: FaIcon(FontAwesomeIcons.envelope, size: 17),
                       ),
                       const SizedBox(height: 20),
                       CustomButton(
@@ -70,15 +70,18 @@ class LoginScreen extends GetView {
                         onPressed: () {},
                         bgColor: Color(0xffffffff),
                         textColor: Colors.black87,
-                        prefixIcon: FaIcon(FontAwesomeIcons.google),
+                        prefixIcon: FaIcon(FontAwesomeIcons.google, size: 17),
                       ),
                       const SizedBox(height: 20),
                       CustomButton(
                         title: "Sign in with apple",
                         onPressed: () {},
-                        bgColor: Color(0xffffffff),
-                        textColor: Colors.black87,
-                        prefixIcon: FaIcon(FontAwesomeIcons.apple),
+                        bgColor: Color(0xff000000),
+                        prefixIcon: FaIcon(
+                          FontAwesomeIcons.apple,
+                          size: 22,
+                          color: Color(0xffffffff),
+                        ),
                       ),
                       const SizedBox(height: 60),
                       Center(

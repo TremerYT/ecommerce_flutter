@@ -24,7 +24,7 @@ class CustomOnboarding extends StatelessWidget {
         const SizedBox(height: 40),
         CustomText(
           text: title,
-          style: Theme.of(context).textTheme.titleLarge,
+          style: Theme.of(context).textTheme.displayLarge,
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 15),

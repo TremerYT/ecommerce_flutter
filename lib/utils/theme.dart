@@ -16,11 +16,71 @@ final ThemeData appTheme = ThemeData(
   ),
 
   textTheme: TextTheme(
-    displayLarge: GoogleFonts.poppins(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.secondaryTextColor),
-    titleLarge: GoogleFonts.poppins(fontSize: 30, fontWeight: FontWeight.w600, color: AppColors.secondaryTextColor),
-    bodyMedium: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.normal, color: AppColors.secondaryTextColor),
-    labelLarge: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500, color: AppColors.primaryTextColor),
+    displayLarge: GoogleFonts.poppins(
+      fontSize: 32,
+      fontWeight: FontWeight.bold,
+      color: AppColors.secondaryTextColor,
+    ),
+    displayMedium: GoogleFonts.poppins(
+      fontSize: 28,
+      fontWeight: FontWeight.w600,
+      color: AppColors.secondaryTextColor,
+    ),
+    displaySmall: GoogleFonts.poppins(
+      fontSize: 22,
+      fontWeight: FontWeight.w500,
+      color: AppColors.secondaryTextColor,
+    ),
+
+    titleLarge: GoogleFonts.poppins(
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+      color: AppColors.secondaryTextColor,
+    ),
+    titleMedium: GoogleFonts.poppins(
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
+      color: AppColors.secondaryTextColor,
+    ),
+    titleSmall: GoogleFonts.poppins(
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+      color: AppColors.secondaryTextColor,
+    ),
+
+    bodyLarge: GoogleFonts.poppins(
+      fontSize: 16,
+      fontWeight: FontWeight.normal,
+      color: AppColors.secondaryTextColor,
+    ),
+    bodyMedium: GoogleFonts.poppins(
+      fontSize: 14,
+      fontWeight: FontWeight.normal,
+      color: AppColors.secondaryTextColor,
+    ),
+    bodySmall: GoogleFonts.poppins(
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      color: AppColors.secondaryTextColor,
+    ),
+
+    labelLarge: GoogleFonts.poppins(
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      color: AppColors.primaryTextColor,
+    ),
+    labelMedium: GoogleFonts.poppins(
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      color: AppColors.primaryTextColor,
+    ),
+    labelSmall: GoogleFonts.poppins(
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      color: AppColors.secondaryTextColor,
+    ),
   ),
+
 
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
