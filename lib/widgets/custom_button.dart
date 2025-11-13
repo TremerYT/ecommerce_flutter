@@ -49,7 +49,7 @@ class CustomButton extends StatelessWidget {
         children: [
           if (prefixIcon != null) ...[
             IconTheme(
-              data: IconThemeData(size: fontSize + 4),
+              data: IconThemeData(size: fontSize + 4, color: buttonTextColor,),
               child: prefixIcon!,
             ),
             const SizedBox(width: 8),
@@ -58,7 +58,7 @@ class CustomButton extends StatelessWidget {
           if (suffixIcon != null) ...[
             const SizedBox(width: 8),
             IconTheme(
-              data: IconThemeData(size: fontSize + 4),
+              data: IconThemeData(size: fontSize + 4, color: buttonTextColor,),
               child: suffixIcon!,
             ),
           ],
