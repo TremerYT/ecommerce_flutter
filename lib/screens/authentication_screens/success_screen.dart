@@ -9,45 +9,38 @@ class SuccessScreen extends GetView {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffffffff),
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-          child: ListView(
+          child: Column(
             children: [
               Image.asset("assets/Mailbox.jpeg", fit: BoxFit.contain),
-              const SizedBox(height: 20),
+              const SizedBox(height: 24),
               CustomText(
                 text: "Password Reset Sent",
-                textColor: Color(0xff000000),
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 16),
               CustomText(
                 text:
                     "Please Check your email in a few minutes - we've sent you an email containing your password recovery link",
-                textColor: Color(0xff838383),
-                fontSize: 17,
-                fontWeight: FontWeight.normal,
+                style: Theme.of(context).textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 16),
               CustomButton(
                 title: "Open my email",
                 onPressed: () {},
                 suffixIcon: Icon(Icons.email_outlined),
+                width: Get.width,
               ),
               const SizedBox(height: 60),
               CustomText(
                 text: "Didn't receive the email?",
-                textColor: Color(0xff838383),
-                fontSize: 17,
-                fontWeight: FontWeight.normal,
-                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 8),
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(

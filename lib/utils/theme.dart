@@ -5,14 +5,14 @@ class AppColors {
   static const Color primaryColor = Color(0xFF6A5AE0);
   static const Color primaryTextColor = Colors.white;
   static const Color secondaryTextColor = Colors.black87;
-  static const Color backgroundColor = Color(0xFFF5F5F5);
+  static const Color backgroundColor = Color(0xffffffff);
 }
 
 final ThemeData appTheme = ThemeData(
   colorScheme: ColorScheme.fromSeed(
     seedColor: AppColors.primaryColor,
     primary: AppColors.primaryColor,
-    background: AppColors.backgroundColor,
+    surface: AppColors.backgroundColor,
   ),
 
   textTheme: TextTheme(
