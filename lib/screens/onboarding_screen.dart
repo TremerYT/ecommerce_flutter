@@ -2,7 +2,6 @@ import 'package:ecommerce/controllers/onboarding_controller.dart';
 import 'package:ecommerce/utils/theme.dart';
 import 'package:ecommerce/widgets/custom_button.dart';
 import 'package:ecommerce/widgets/custom_onboarding.dart';
-import 'package:ecommerce/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

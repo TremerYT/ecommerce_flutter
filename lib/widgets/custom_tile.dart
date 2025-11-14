@@ -1,7 +1,6 @@
 import 'package:ecommerce/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
-import '../utils/theme.dart';
 
 class ResetOptionTile extends StatelessWidget {
   final String image;

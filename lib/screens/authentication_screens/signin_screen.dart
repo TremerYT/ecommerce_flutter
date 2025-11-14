@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:sign_in_button/sign_in_button.dart';
+
 
 class SignInScreen extends GetView<AuthController> {
   const SignInScreen({super.key});
@@ -78,7 +78,7 @@ class SignInScreen extends GetView<AuthController> {
               const SizedBox(height: 10),
               CustomButton(
                 title: "Sign In",
-                onPressed: () {},
+                onPressed: () { Get.toNamed("/homeScreen");},
                 width: Get.width,
                 bgColor: Color(0xff151d36),
               ),

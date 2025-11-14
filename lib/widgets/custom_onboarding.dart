@@ -1,4 +1,3 @@
-import 'package:ecommerce/utils/theme.dart';
 import 'package:ecommerce/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

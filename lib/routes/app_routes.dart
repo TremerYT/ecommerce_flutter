@@ -1,9 +1,11 @@
 import 'package:ecommerce/controllers/auth_controller.dart';
+import 'package:ecommerce/controllers/category_controller.dart';
 import 'package:ecommerce/controllers/onboarding_controller.dart';
 import 'package:ecommerce/screens/authentication_screens/login_screen.dart';
 import 'package:ecommerce/screens/authentication_screens/forgotpass_screen.dart';
 import 'package:ecommerce/screens/authentication_screens/reset_screen.dart';
 import 'package:ecommerce/screens/authentication_screens/success_screen.dart';
+import 'package:ecommerce/screens/home_screens/home_screens.dart';
 import 'package:ecommerce/screens/onboarding_screen.dart';
 import 'package:ecommerce/screens/authentication_screens/signin_screen.dart';
 import 'package:ecommerce/screens/authentication_screens/signup_screen.dart';
@@ -16,7 +18,8 @@ class AppRoutes {
   static const signUp = '/signUp';
   static const forgotPassword = '/forgotPassword';
   static const resetPassword = '/resetPassword';
-  static const successScreen ='/successScreen';
+  static const successScreen = '/successScreen';
+  static const homeScreen = '/homeScreen';
   static final routes = [
     GetPage(
       name: onboarding,
@@ -49,5 +52,12 @@ class AppRoutes {
       }),
     ),
     GetPage(name: successScreen, page: () => SuccessScreen()),
+    GetPage(
+      name: homeScreen,
+      page: () => HomeScreen(),
+      binding: BindingsBuilder(() {
+        Get.put(CategoryController());
+      }),
+    ),
   ];
 }
