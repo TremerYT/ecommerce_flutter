@@ -26,6 +26,10 @@ class AuthController {
       "name": "password",
       "label": "Password"
     },
+    {
+      "name": "confirmPassword",
+      "label": "Confirm Password"
+    }
   ];
 
   final signInKey = GlobalKey<FormBuilderState>();
