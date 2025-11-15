@@ -19,12 +19,12 @@ class AuthController {
       "label": "Full Name"
     },
     {
-      "name": "email",
-      "label": "Email"
+      "name": "userName",
+      "label": "Username"
     },
     {
-      "name": "phone",
-      "label": "Phone"
+      "name": "email",
+      "label": "Email"
     },
     {
       "name": "password",
