@@ -19,10 +19,6 @@ class AuthController {
       "label": "Full Name"
     },
     {
-      "name": "userName",
-      "label": "Username"
-    },
-    {
       "name": "email",
       "label": "Email"
     },
