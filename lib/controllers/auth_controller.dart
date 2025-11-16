@@ -23,13 +23,13 @@ class AuthController {
       "label": "Email"
     },
     {
-      "name": "phone",
-      "label": "Phone"
-    },
-    {
       "name": "password",
       "label": "Password"
     },
+    {
+      "name": "confirmPassword",
+      "label": "Confirm Password"
+    }
   ];
 
   final signInKey = GlobalKey<FormBuilderState>();
