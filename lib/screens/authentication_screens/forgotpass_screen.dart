@@ -11,17 +11,17 @@ class ForgotPasswordScreen extends GetView {
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> options = [
       {
-        "image": "assets/smartphone.png",
+        "image": "assets/authscreens_images/smartphone.png",
         "title": "Send via SMS",
         "color": Colors.blue.shade100,
       },
       {
-        "image": "assets/mail.png",
+        "image": "assets/authscreens_images/mail.png",
         "title": "Send via Email",
         "color": Colors.red.shade100,
       },
       {
-        "image": "assets/key.png",
+        "image": "assets/authscreens_images/key.png",
         "title": "Send via 2FA",
         "color": Colors.green.shade100,
       },

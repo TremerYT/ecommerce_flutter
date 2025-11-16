@@ -15,7 +15,7 @@ class SuccessScreen extends GetView {
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
           child: Column(
             children: [
-              Image.asset("assets/Mailbox.jpeg", fit: BoxFit.contain),
+              Image.asset("assets/authscreens_images/Mailbox.jpeg", fit: BoxFit.contain),
               const SizedBox(height: 24),
               CustomText(
                 text: "Password Reset Sent",

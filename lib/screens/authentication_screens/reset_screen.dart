@@ -19,7 +19,11 @@ class ResetScreen extends GetView<AuthController> {
           child: ListView(
             children: [
               const SizedBox(height: 20),
-              Image.asset("assets/forgot_password.jpeg", fit: BoxFit.contain, height: Get.height * 0.3,),
+              Image.asset(
+                "assets/authscreens_images/forgot_password.jpeg",
+                fit: BoxFit.contain,
+                height: Get.height * 0.3,
+              ),
               CustomText(
                 text: "Forgot Password",
                 style: Theme.of(context).textTheme.displayLarge,
@@ -43,7 +47,9 @@ class ResetScreen extends GetView<AuthController> {
               CustomButton(
                 title: "Send Password Reset",
                 width: Get.width,
-                onPressed: () {Get.toNamed("/successScreen");},
+                onPressed: () {
+                  Get.toNamed("/successScreen");
+                },
                 suffixIcon: Icon(Icons.arrow_forward),
               ),
               const SizedBox(height: 50),

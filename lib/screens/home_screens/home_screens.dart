@@ -69,7 +69,6 @@ class HomeScreen extends GetView<CategoryController> {
                 ),
               ),
             ),
-            buildCategoryShimmer(),
             Obx(() {
               if (controller.isLoading.value) {
                 return buildCategoryShimmer();
@@ -86,14 +85,16 @@ class HomeScreen extends GetView<CategoryController> {
 
   Widget buildCategoryShimmer() {
     return SizedBox(
-      height: 20,
+      height: 100,
       child: ListView.separated(
+        scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return Shimmer.fromColors(
             baseColor: Colors.grey.shade300,
             highlightColor: Colors.grey.shade100,
             child: Container(
-              width: 100,
+              width: 70,
+              height: 70,
               decoration: BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
@@ -111,13 +112,14 @@ class HomeScreen extends GetView<CategoryController> {
     return SizedBox(
       height: 100,
       child: ListView.separated(
+        scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           final category = controller.categories[index];
           return Column(
             children: [
               Container(
-                width: 70,
-                height: 70,
+                width: 50,
+                height: 50,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(image: AssetImage(category.image))

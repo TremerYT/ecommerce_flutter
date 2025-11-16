@@ -19,7 +19,7 @@ class LoginScreen extends GetView {
             Expanded(
               flex: 4,
               child: Image.asset(
-                "assets/login_screen_pic.jpeg",
+                "assets/authscreens_images/login_screen_pic.jpeg",
                 fit: BoxFit.contain,
               ),
             ),

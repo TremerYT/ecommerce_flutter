@@ -17,11 +17,12 @@ class CategoryController extends GetxController{
     await Future.delayed(Duration(seconds: 5));
 
     categories.assignAll([
-      Category(name: 'Shoes', image: 'assets/mail.png'),
-      Category(name: 'Bags', image: 'assets/smartphone.jpeg'),
-      Category(name: 'Shirts', image: 'assets/Mailbox.jpeg'),
-      Category(name: 'Watches', image: 'assets/shopping_icon.jpeg'),
-      Category(name: 'Hats', image: 'assets/mail.png'),
+      Category(name: 'Furniture', image: 'assets/category_icons/furniture.png'),
+      Category(name: 'Clothing', image: 'assets/category_icons/clothing.png'),
+      Category(name: 'Bags', image: 'assets/category_icons/bags.png'),
+      Category(name: 'Food', image: 'assets/category_icons/food.png'),
+      Category(name: 'Electronics', image: 'assets/category_icons/gadgets.png'),
+      Category(name: 'Cosmetics', image: 'assets/category_icons/makeup.png'),
     ]);
 
     isLoading.value = false;

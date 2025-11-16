@@ -24,7 +24,7 @@ class SignInScreen extends GetView<AuthController> {
             children: [
               ClipOval(
                 child: Image.asset(
-                  "assets/shopping_icon.jpeg",
+                  "assets/authscreens_images/shopping_icon.jpeg",
                   width: 60,
                   height: 60,
                 ),
