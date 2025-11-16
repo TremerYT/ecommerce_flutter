@@ -69,6 +69,7 @@ class HomeScreen extends GetView<CategoryController> {
                 ),
               ),
             ),
+            buildCategoryShimmer(),
             Obx(() {
               if (controller.isLoading.value) {
                 return buildCategoryShimmer();
@@ -84,10 +85,50 @@ class HomeScreen extends GetView<CategoryController> {
   }
 
   Widget buildCategoryShimmer() {
-    return SizedBox();
+    return SizedBox(
+      height: 20,
+      child: ListView.separated(
+        itemBuilder: (context, index) {
+          return Shimmer.fromColors(
+            baseColor: Colors.grey.shade300,
+            highlightColor: Colors.grey.shade100,
+            child: Container(
+              width: 100,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+              ),
+            ),
+          );
+        },
+        separatorBuilder: (_, __) => const SizedBox(width: 12),
+        itemCount: 6,
+      ),
+    );
   }
 
   Widget buildCategoryList() {
-    return SizedBox();
+    return SizedBox(
+      height: 100,
+      child: ListView.separated(
+        itemBuilder: (context, index) {
+          final category = controller.categories[index];
+          return Column(
+            children: [
+              Container(
+                width: 70,
+                height: 70,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(image: AssetImage(category.image))
+                ),
+              )
+            ],
+          );
+        },
+        separatorBuilder: (_, __) => const SizedBox(width: 12),
+        itemCount: controller.categories.length,
+      ),
+    );
   }
 }
