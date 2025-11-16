@@ -1,13 +1,15 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:ecommerce/controllers/category_controller.dart';
+import 'package:ecommerce/controllers/home_controller.dart';
 import 'package:ecommerce/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shimmer/shimmer.dart';
 
-class HomeScreen extends GetView<CategoryController> {
-  const HomeScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  final homeController = Get.put(HomeController());
+  final categoryController = Get.put(CategoryController());
 
   @override
   Widget build(BuildContext context) {
@@ -70,13 +72,33 @@ class HomeScreen extends GetView<CategoryController> {
               ),
             ),
             Obx(() {
-              if (controller.isLoading.value) {
+              if (categoryController.isLoading.value) {
                 return buildCategoryShimmer();
               } else {
                 return buildCategoryList();
               }
             }),
             const SizedBox(height: 20),
+            SizedBox(
+              height: 180,
+              child: PageView.builder(
+                controller: homeController.bannerController,
+                onPageChanged: homeController.onBannerChanged,
+                itemCount: homeController.banners.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.asset(
+                        homeController.banners[index],
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
@@ -84,53 +106,87 @@ class HomeScreen extends GetView<CategoryController> {
   }
 
   Widget buildCategoryShimmer() {
-    return SizedBox(
-      height: 100,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return Shimmer.fromColors(
-            baseColor: Colors.grey.shade300,
-            highlightColor: Colors.grey.shade100,
-            child: Container(
-              width: 70,
-              height: 70,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SizedBox(
+        height: 100,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return Shimmer.fromColors(
+              baseColor: Colors.grey.shade300,
+              highlightColor: Colors.grey.shade100,
+              child: Container(
+                width: 70,
+                height: 70,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                ),
               ),
-            ),
-          );
-        },
-        separatorBuilder: (_, __) => const SizedBox(width: 12),
-        itemCount: 6,
+            );
+          },
+          separatorBuilder: (_, __) => const SizedBox(width: 12),
+          itemCount: 6,
+        ),
       ),
     );
   }
 
   Widget buildCategoryList() {
-    return SizedBox(
-      height: 100,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          final category = controller.categories[index];
-          return Column(
-            children: [
-              Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(image: AssetImage(category.image))
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SizedBox(
+        height: 100,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            final category = categoryController.categories[index];
+            return Column(
+              children: [
+                Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.orangeAccent, width: 2),
+                    image: DecorationImage(
+                      image: AssetImage(category.image),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-              )
-            ],
-          );
-        },
-        separatorBuilder: (_, __) => const SizedBox(width: 12),
-        itemCount: controller.categories.length,
+                const SizedBox(height: 8),
+                CustomText(text: category.name),
+              ],
+            );
+          },
+          separatorBuilder: (_, __) => const SizedBox(width: 15),
+          itemCount: categoryController.categories.length,
+        ),
       ),
     );
+  }
+
+  Widget buildBannerIndicator() {
+    return Obx(() {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: List.generate(3, (index) {
+          return AnimatedContainer(
+            duration: Duration(milliseconds: 300),
+            margin: EdgeInsets.all(4),
+            width: homeController.currentBanner.value == index ? 18 : 6,
+            height: 6,
+            decoration: BoxDecoration(
+              color: homeController.currentBanner.value == index
+                  ? Colors.orange
+                  : Colors.grey,
+              borderRadius: BorderRadius.circular(4),
+            ),
+          );
+        }),
+      );
+    });
   }
 }
