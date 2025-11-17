@@ -1,6 +1,7 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:ecommerce/controllers/category_controller.dart';
 import 'package:ecommerce/controllers/home_controller.dart';
+import 'package:ecommerce/widgets/custom_shimmer.dart';
 import 'package:ecommerce/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -73,7 +74,12 @@ class HomeScreen extends StatelessWidget {
             ),
             Obx(() {
               if (categoryController.isLoading.value) {
-                return buildCategoryShimmer();
+                return CustomShimmer(
+                  outerHeight: 100,
+                  containerHeight: 70,
+                  containerWidth: 70,
+                  boxShape: BoxShape.circle,
+                );
               } else {
                 return buildCategoryList();
               }
@@ -100,34 +106,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget buildCategoryShimmer() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: SizedBox(
-        height: 100,
-        child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return Shimmer.fromColors(
-              baseColor: Colors.grey.shade300,
-              highlightColor: Colors.grey.shade100,
-              child: Container(
-                width: 70,
-                height: 70,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                ),
-              ),
-            );
-          },
-          separatorBuilder: (_, __) => const SizedBox(width: 12),
-          itemCount: 6,
         ),
       ),
     );
