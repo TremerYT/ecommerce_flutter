@@ -1,4 +1,5 @@
 import 'package:badges/badges.dart' as badges;
+import 'package:ecommerce/controllers/brand_controller.dart';
 import 'package:ecommerce/controllers/category_controller.dart';
 import 'package:ecommerce/controllers/home_controller.dart';
 import 'package:ecommerce/widgets/custom_shimmer.dart';
@@ -6,11 +7,11 @@ import 'package:ecommerce/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shimmer/shimmer.dart';
 
 class HomeScreen extends StatelessWidget {
   final homeController = Get.put(HomeController());
   final categoryController = Get.put(CategoryController());
+  final brandController = Get.put(BrandController());
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class HomeScreen extends StatelessWidget {
           text: "Nirvana",
           style: Theme.of(context).textTheme.displayLarge?.copyWith(
             fontFamily: GoogleFonts.pacifico().fontFamily,
+            fontSize: 36
           ),
         ),
         actions: [
@@ -100,7 +102,56 @@ class HomeScreen extends StatelessWidget {
                 return buildBannerList();
               }
             }),
+            const SizedBox(height: 10),
+            buildBannerIndicator(),
+            const SizedBox(height: 8),
+            Obx(() {
+              if (homeController.isLoading.value) {
+                return CustomShimmer(
+                  outerHeight: 100,
+                  containerHeight: 70,
+                  containerWidth: 70,
+                  boxShape: BoxShape.circle,
+                  itemCount: 7,
+                );
+              } else {
+                return buildBrandList();
+              }
+            }),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildBrandList() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SizedBox(
+        height: 100,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            final brand = brandController.brands[index];
+            return Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(3),
+                  height: 70,
+                  width: 70,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.blueAccent, width: 2),
+                    shape: BoxShape.circle,
+                  ),
+                  child: ClipOval(
+                    child: Image.asset(brand.image, fit: BoxFit.cover),
+                  ),
+                ),
+              ],
+            );
+          },
+          separatorBuilder: (_, __) => const SizedBox(width: 15),
+          itemCount: 7,
         ),
       ),
     );

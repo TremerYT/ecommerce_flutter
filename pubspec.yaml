@@ -71,6 +71,7 @@ flutter:
     - assets/banner_images/
     - assets/category_icons/
     - assets/authscreens_images/
+    - assets/brand_icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
