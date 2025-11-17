@@ -7,13 +7,17 @@ class CustomShimmer extends StatelessWidget {
   final double containerHeight;
   final Axis scrollDirection;
   final BoxShape boxShape;
+  final int itemCount;
+  final BorderRadiusGeometry? borderRadius;
 
   const CustomShimmer({
     super.key,
     required this.outerHeight,
     required this.containerHeight,
     required this.containerWidth,
+    required this.itemCount,
     required this.boxShape,
+    this.borderRadius,
     this.scrollDirection = Axis.horizontal,
   });
 
@@ -35,12 +39,15 @@ class CustomShimmer extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   shape: boxShape,
+                  borderRadius: boxShape == BoxShape.rectangle
+                      ? borderRadius
+                      : null,
                 ),
               ),
             );
           },
           separatorBuilder: (_, __) => const SizedBox(width: 12),
-          itemCount: 6,
+          itemCount: itemCount,
         ),
       ),
     );

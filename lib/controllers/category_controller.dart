@@ -18,11 +18,13 @@ class CategoryController extends GetxController{
 
     categories.assignAll([
       Category(name: 'Furniture', image: 'assets/category_icons/furniture.png'),
-      Category(name: 'Clothing', image: 'assets/category_icons/clothing.png'),
+      Category(name: 'Fashion', image: 'assets/category_icons/clothing.png'),
+      Category(name: 'Gaming', image: 'assets/category_icons/gaming.png'),
       Category(name: 'Bags', image: 'assets/category_icons/bags.png'),
       Category(name: 'Food', image: 'assets/category_icons/food.png'),
       Category(name: 'Electronics', image: 'assets/category_icons/gadgets.png'),
       Category(name: 'Cosmetics', image: 'assets/category_icons/makeup.png'),
+      Category(name: 'Health', image: 'assets/category_icons/healthcare.png'),
     ]);
 
     isLoading.value = false;

@@ -79,32 +79,27 @@ class HomeScreen extends StatelessWidget {
                   containerHeight: 70,
                   containerWidth: 70,
                   boxShape: BoxShape.circle,
+                  itemCount: 8,
                 );
               } else {
                 return buildCategoryList();
               }
             }),
             const SizedBox(height: 20),
-            SizedBox(
-              height: 180,
-              child: PageView.builder(
-                controller: homeController.bannerController,
-                onPageChanged: homeController.onBannerChanged,
-                itemCount: homeController.banners.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Image.asset(
-                        homeController.banners[index],
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
+            Obx(() {
+              if (homeController.isLoading.value) {
+                return CustomShimmer(
+                  outerHeight: 150,
+                  containerHeight: 180,
+                  containerWidth: Get.width * 0.9,
+                  boxShape: BoxShape.rectangle,
+                  itemCount: 1,
+                  borderRadius: BorderRadius.circular(12),
+                );
+              } else {
+                return buildBannerList();
+              }
+            }),
           ],
         ),
       ),
@@ -121,17 +116,18 @@ class HomeScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             final category = categoryController.categories[index];
             return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 60,
-                  height: 60,
+                  padding: EdgeInsets.all(3),
+                  height: 70,
+                  width: 70,
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle,
                     border: Border.all(color: Colors.orangeAccent, width: 2),
-                    image: DecorationImage(
-                      image: AssetImage(category.image),
-                      fit: BoxFit.cover,
-                    ),
+                    shape: BoxShape.circle,
+                  ),
+                  child: ClipOval(
+                    child: Image.asset(category.image, fit: BoxFit.cover),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -142,6 +138,29 @@ class HomeScreen extends StatelessWidget {
           separatorBuilder: (_, __) => const SizedBox(width: 15),
           itemCount: categoryController.categories.length,
         ),
+      ),
+    );
+  }
+
+  Widget buildBannerList() {
+    return SizedBox(
+      height: 150,
+      child: PageView.builder(
+        controller: homeController.bannerController,
+        onPageChanged: homeController.onBannerChanged,
+        itemCount: homeController.banners.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(
+                homeController.banners[index],
+                fit: BoxFit.cover,
+              ),
+            ),
+          );
+        },
       ),
     );
   }

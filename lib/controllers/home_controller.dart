@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 class HomeController extends GetxController {
   late PageController bannerController;
   var currentBanner = 0.obs;
+  var isLoading = true.obs;
   Timer? bannerTimer;
 
   final List<String> banners = [
@@ -15,9 +16,12 @@ class HomeController extends GetxController {
   ];
 
   @override
-  void onInit() {
+  Future<void> onInit() async {
     super.onInit();
     bannerController = PageController();
+    isLoading.value = true;
+    await Future.delayed(Duration(seconds: 5));
+    isLoading.value = false;
 
     bannerTimer = Timer.periodic(Duration(seconds: 3), (_) {
       if (bannerController.hasClients) {
