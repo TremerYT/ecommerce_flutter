@@ -19,7 +19,12 @@ class CustomOnboarding extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(image, height: Get.height * 0.3),
+        Image.asset(
+          image,
+          height: Get.height * 0.3,
+          cacheHeight: (Get.height * 0.3 * Get.pixelRatio).round(),
+          filterQuality: FilterQuality.medium,
+        ),
         const SizedBox(height: 40),
         CustomText(
           text: title,

@@ -21,6 +21,8 @@ class LoginScreen extends GetView {
               child: Image.asset(
                 "assets/authscreens_images/login_screen_pic.jpeg",
                 fit: BoxFit.contain,
+                cacheWidth: (Get.width * Get.pixelRatio).round(),
+                filterQuality: FilterQuality.medium,
               ),
             ),
             Expanded(
