@@ -1,10 +1,11 @@
 import 'package:ecommerce/controllers/onboarding_controller.dart';
-import 'package:ecommerce/utils/theme.dart';
 import 'package:ecommerce/widgets/custom_button.dart';
 import 'package:ecommerce/widgets/custom_onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../widgets/custom_indicator.dart';
 
 class OnboardingScreen extends GetView<OnboardingController> {
   const OnboardingScreen({super.key});
@@ -27,9 +28,9 @@ class OnboardingScreen extends GetView<OnboardingController> {
                   itemBuilder: (context, index) {
                     final page = controller.pages[index];
                     return CustomOnboarding(
-                      image: page["image"]!,
-                      title: page["title"]!,
-                      subText: page["subtext"]!,
+                      image: page.image,
+                      title: page.title,
+                      subText: page.subtext,
                     );
                   },
                 ),
@@ -40,7 +41,12 @@ class OnboardingScreen extends GetView<OnboardingController> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Obx(() => buildPageIndicator()),
+                    Obx(
+                      () => PageIndicator(
+                        pageCount: controller.pages.length,
+                        currentPage: controller.currentPage.value,
+                      ),
+                    ),
                     const SizedBox(height: 20),
                     CustomButton(
                       title: "Get Started",
@@ -60,34 +66,13 @@ class OnboardingScreen extends GetView<OnboardingController> {
     );
   }
 
-  Widget buildPageIndicator() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(controller.pages.length, (index) {
-        final isActive = controller.currentPage.value == index;
-        return AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          margin: const EdgeInsets.symmetric(horizontal: 5),
-          width: isActive ? 20 : 8,
-          height: 8,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: controller.currentPage.value == index
-                ? AppColors.primaryColor.withOpacity(0.9)
-                : Colors.grey.withOpacity(0.4),
-          ),
-        );
-      }),
-    );
-  }
-
   Widget buildTermsText() {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
         style: GoogleFonts.poppins(
           color: Colors.black87,
-          fontSize: 14 ,
+          fontSize: 14,
           fontWeight: FontWeight.normal,
         ),
         children: const [

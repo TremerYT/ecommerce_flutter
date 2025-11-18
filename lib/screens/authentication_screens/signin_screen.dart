@@ -22,16 +22,8 @@ class SignInScreen extends GetView<AuthController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipOval(
-                child: Image.asset(
-                  "assets/authscreens_images/shopping_icon.jpeg",
-                  width: 60,
-                  height: 60,
-                ),
-              ),
-              const SizedBox(height: 30),
               CustomText(
-                text: "Welcome back",
+                text: "Welcome back to nirvana",
                 style: Theme.of(context).textTheme.displayMedium,
               ),
               const SizedBox(height: 8),
