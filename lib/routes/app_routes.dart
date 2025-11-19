@@ -28,36 +28,38 @@ class AppRoutes {
         Get.put(OnboardingController());
       }),
     ),
+
     GetPage(name: login, page: () => LoginScreen()),
-    GetPage(
-      name: signIn,
-      page: () => SignInScreen(),
-      binding: BindingsBuilder(() {
-        Get.put(AuthController(), permanent: true);
-      }),
-    ),
-    GetPage(
-      name: signUp,
-      page: () => SignUpScreen(),
-      binding: BindingsBuilder(() {
-        Get.put(AuthController(), permanent: true);
-      }),
-    ),
-    GetPage(name: forgotPassword, page: () => ForgotPasswordScreen()),
-    GetPage(
-      name: resetPassword,
-      page: () => ResetScreen(),
-      binding: BindingsBuilder(() {
-        Get.put(AuthController(), permanent: true);
-      }),
-    ),
-    GetPage(name: successScreen, page: () => SuccessScreen()),
-    GetPage(
-      name: homeScreen,
-      page: () => HomeScreen(),
-      binding: BindingsBuilder(() {
-        Get.put(CategoryController());
-      }),
-    ),
+    // GetPage(
+    //   name: signIn,
+    //   page: () => SignInScreen(),
+    //   binding: BindingsBuilder(() {
+    //     Get.put(AuthController(), permanent: true);
+    //   }),
+    // ),
   ];
+  //   GetPage(
+  //     name: signUp,
+  //     page: () => SignUpScreen(),
+  //     binding: BindingsBuilder(() {
+  //       Get.put(AuthController(), permanent: true);
+  //     }),
+  //   ),
+  //   GetPage(name: forgotPassword, page: () => ForgotPasswordScreen()),
+  //   GetPage(
+  //     name: resetPassword,
+  //     page: () => ResetScreen(),
+  //     binding: BindingsBuilder(() {
+  //       Get.put(AuthController(), permanent: true);
+  //     }),
+  //   ),
+  //   GetPage(name: successScreen, page: () => SuccessScreen()),
+  //   GetPage(
+  //     name: homeScreen,
+  //     page: () => HomeScreen(),
+  //     binding: BindingsBuilder(() {
+  //       Get.put(CategoryController());
+  //     }),
+  //   ),
+  // ];
 }

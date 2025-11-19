@@ -1,3 +1,4 @@
+import 'package:ecommerce/utils/theme.dart';
 import 'package:ecommerce/widgets/custom_button.dart';
 import 'package:ecommerce/widgets/custom_text.dart';
 import 'package:flutter/gestures.dart';
@@ -12,14 +13,14 @@ class LoginScreen extends GetView {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffffffff),
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: Column(
           children: [
             Expanded(
               flex: 4,
               child: Image.asset(
-                "assets/authscreens_images/login_screen_pic.jpeg",
+                "assets/authscreens_images/login_screen.png",
                 fit: BoxFit.contain,
               ),
             ),
@@ -30,24 +31,20 @@ class LoginScreen extends GetView {
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: AppColors.surface,
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20),
                     ),
                   ),
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       CustomText(
                         text: "Welcome to Nirvana",
                         textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.displayLarge
-                            ?.copyWith(
-                              fontFamily: GoogleFonts.pacifico().fontFamily,
-                              fontSize: 35,
-                            ),
+                        style: Theme.of(context).textTheme.headlineLarge,
                       ),
                       const SizedBox(height: 10),
                       CustomText(
@@ -87,11 +84,7 @@ class LoginScreen extends GetView {
                       Center(
                         child: RichText(
                           text: TextSpan(
-                            style: GoogleFonts.poppins(
-                              color: Colors.black87,
-                              fontSize: 14,
-                              fontWeight: FontWeight.normal,
-                            ),
+                            style: Theme.of(context).textTheme.bodySmall,
                             children: <TextSpan>[
                               TextSpan(
                                 text: "Don't have an account? ",

@@ -7,22 +7,22 @@ class OnboardingController extends GetxController {
   var currentPage = 0.obs;
   final List<OnboardingModel> pages = [
     OnboardingModel(
-      image: "assets/authscreens_images/onboarding1",
+      image: "assets/authscreens_images/onboarding1.png",
       title: "One best app for all your needs",
       subtext:
-          "We believe in quality over quantity. Explore our hand-picked collections featuring unique, high-quality items sourced from designers around the globe",
+          "We believe in quality over quantity. Explore our hand-picked collections featuring unique, high-quality items sourced from designers around the globe.",
     ),
     OnboardingModel(
-      image: "assets/authscreens_images/onboarding2",
+      image: "assets/authscreens_images/onboarding2.png",
       title: "Get real-time updates for all deliveries",
       subtext:
-          "Our time is valuable. We offer expedited, fully trackable shipping on all orders. Plus, enjoy our hassle-free returns policy because we want you to be absolutely certain you love your purchases",
+          "Our time is valuable. We offer expedited, fully trackable shipping on all orders. Plus, enjoy our hassle-free return policy to be absolutely certain you love your purchases.",
     ),
     OnboardingModel(
-      image: "assets/authscreens_images/onboarding3",
+      image: "assets/authscreens_images/onboarding3.png",
       title: "Follow and get updates from various stores",
       subtext:
-          "Sign up for an account today and unlock a world of member-only perks: early access to new releases, seasonal sales events, and personalized recommendations tailored just for you.",
+          "Sign up for an account today and unlock a world of member-only perks: early access to new releases, seasonal sales events, and personalized recommendations.",
     ),
   ];
 
