@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:get/get.dart';
 
-class AuthController {
+class AuthController extends GetxController{
   List<Map> signInFormProperties = [
     {
       "name": "email",
@@ -35,6 +36,11 @@ class AuthController {
   final signInKey = GlobalKey<FormBuilderState>();
   final signUpKey = GlobalKey<FormBuilderState>();
   final resetKey = GlobalKey<FormBuilderState>();
+  var rememberMe = false.obs;
+
+  void toggleRememberMe (bool? value) {
+    rememberMe.value = value ?? false;
+  }
 
   void signInValidator() {
     signInKey.currentState!.saveAndValidate();
