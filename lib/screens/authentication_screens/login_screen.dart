@@ -5,7 +5,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends GetView {
   const LoginScreen({super.key});
@@ -13,7 +12,7 @@ class LoginScreen extends GetView {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColors.surface,
       body: SafeArea(
         child: Column(
           children: [
@@ -21,7 +20,6 @@ class LoginScreen extends GetView {
               flex: 4,
               child: Image.asset(
                 "assets/authscreens_images/login_screen.png",
-                fit: BoxFit.contain,
               ),
             ),
             Expanded(

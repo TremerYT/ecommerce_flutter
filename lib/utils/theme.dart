@@ -46,7 +46,7 @@ final ThemeData appTheme = ThemeData(
     ),
     displayLarge: GoogleFonts.poppins(
       fontSize: 32,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.normal,
       color: AppColors.textPrimary,
     ),
     displayMedium: GoogleFonts.poppins(

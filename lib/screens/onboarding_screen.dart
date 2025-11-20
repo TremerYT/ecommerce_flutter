@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../widgets/custom_indicator.dart';
+import '../widgets/custom_onboarding.dart';
 import '../widgets/custom_text.dart';
 
 class OnboardingScreen extends GetView<OnboardingController> {
@@ -26,25 +27,7 @@ class OnboardingScreen extends GetView<OnboardingController> {
                   onPageChanged: controller.onPageChanged,
                   itemCount: controller.pages.length,
                   itemBuilder: (context, index) {
-                    final page = controller.pages[index];
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(page.image),
-                        const SizedBox(height: 20,),
-                        CustomText(
-                          text: page.title,
-                          style: Theme.of(context).textTheme.displayLarge,
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 15),
-                        CustomText(
-                          text: page.subtext,
-                          style: Theme.of(context).textTheme.bodyMedium,
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    );
+                    return CustomOnBoarding(page: controller.pages[index]);
                   },
                 ),
               ),
@@ -77,6 +60,7 @@ class OnboardingScreen extends GetView<OnboardingController> {
       ),
     );
   }
+
 
   Widget buildTermsText(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;

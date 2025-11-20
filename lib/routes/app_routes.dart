@@ -30,13 +30,13 @@ class AppRoutes {
     ),
 
     GetPage(name: login, page: () => LoginScreen()),
-    // GetPage(
-    //   name: signIn,
-    //   page: () => SignInScreen(),
-    //   binding: BindingsBuilder(() {
-    //     Get.put(AuthController(), permanent: true);
-    //   }),
-    // ),
+    GetPage(
+      name: signIn,
+      page: () => SignInScreen(),
+      binding: BindingsBuilder(() {
+        Get.put(AuthController(), permanent: true);
+      }),
+    ),
   ];
   //   GetPage(
   //     name: signUp,
